@@ -1,0 +1,248 @@
+*,
+:before,
+:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+}
+
+:root {
+  --body_bg: #fff;
+  --card_bg: #fff;
+  --row_color: #000;
+  --cardHeader_bg: #fff;
+  --cardHeader_color: #000;
+  --modal_bg: #fff;
+  --modal_color: #1b1b1b;
+}
+
+.secondary-theme {
+  --body_bg: #1b1b1b;
+  --card_bg: #614561;
+  --row_color: #fff;
+  --cardHeader_bg: #1b1b1b;
+  --cardHeader_color: rgb(215, 215, 215);
+  --modal_bg: #1b1b1b;
+  --modal_color: rgb(215, 215, 215);
+}
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--body_bg);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: #342434;
+  padding: 1em 2em;
+
+  .brand {
+    display: flex;
+    align-items: center;
+
+    a {
+      width: 4em;
+      height: auto;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 100%;
+        border-radius: 100%;
+      }
+    }
+
+    span {
+      color: #fff;
+      font-family: 'Source Sans Pro', sans-serif;
+      letter-spacing: 0.1em;
+      font-size: 2.5em;
+      font-weight: 600;
+
+      margin-inline: 0.375em;
+    }
+  }
+
+  .search {
+    display: flex;
+
+    .bar {
+      display: flex;
+
+      input {
+        border: 0;
+        border-radius: 0.5em 0 0 0.5em;
+        padding-inline: 1em;
+
+        width: clamp(25vw, 10em, 100%);
+      }
+
+      a {
+        padding: 0.5em 2em;
+        background-color: #fd8320;
+
+        border-radius: 0 0.5em 0.5em 0;
+
+        color: #fff;
+      }
+    }
+
+    .buttons {
+      display: flex;
+      margin-left: 1em;
+      gap: 1em;
+      a {
+        padding: 0.5em 1em;
+        border-radius: 0.5em;
+        color: #fff;
+        background-color: #fd8320;
+      }
+    }
+  }
+}
+
+section {
+  width: 94%;
+  margin: 2em auto;
+  padding: 2em;
+
+  background-color: #342434;
+  color: #fff;
+  border-radius: 1em;
+
+  .title {
+    display: flex;
+    justify-content: space-between;
+
+    .info {
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: stretch;
+
+      h2 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 2em;
+        font-weight: 300;
+        text-transform: uppercase;
+      }
+
+      span {
+        font-style: italic;
+        color: rgb(190, 190, 190);
+        vertical-align: baseline;
+      }
+    }
+
+    .pagination {
+      a {
+        margin-inline: 0.75em;
+        background-color: #fd8320;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        border-radius: 0.5em;
+        text-decoration: none;
+        span {
+          padding: 1em;
+
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  .row {
+    color: var(--row_color);
+    margin: 1em;
+    justify-content: center;
+
+    h4 {
+      color: #fff;
+    }
+
+    .card {
+      cursor: pointer;
+      overflow: hidden;
+      background-color: var(--card_bg);
+      border: 0;
+      border-radius: 0.5em;
+
+      .card-header {
+        background-color: var(--cardHeader_bg);
+        color: var(--cardHeader_color);
+
+        text-align: center;
+        padding: 0.75em;
+
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 1.25em;
+      }
+
+      img {
+        text-align: center;
+        width: 110% !important;
+        transform: translateX(-5%);
+
+        object-fit: cover;
+        height: 7.5em;
+      }
+
+      .card-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-inline: 0.5em;
+
+        h5 {
+          i {
+            margin-right: 0.25em;
+            color: #fd8320;
+          }
+        }
+      }
+    }
+
+    .card:hover {
+      transform: scale(1.01);
+      transition: all 100ms;
+    }
+  }
+}
+
+.modal {
+  .modal-backdrop {
+    z-index: -1;
+  }
+
+  .modal-content {
+    background-color: var(--modal_bg);
+  }
+
+  .modal-title {
+    color: var(--modal_color);
+  }
+
+  .btn-danger {
+    border-color: #fd8320;
+    background-color: #fd8320;
+  }
+
+  code {
+    white-space: pre;
+    color: #fd8320;
+  }
+}

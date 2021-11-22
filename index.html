@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="author" content="Luka Cerrutti" />
+    <meta
+      name="description"
+      content="TP final de Coderhouse. Trabajo realizado principalmente en conjunto con la API de Kitsu.io~"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/pX10t0LQ/blUskQR.png" />
+    <title>Kitsu Remake</title>
+  </head>
+  <body>
+    <div class="modal" id="modal">
+      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 id="modalTitle" class="modal-title"></h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+
+          <!-- Modal body -->
+          <div id="modalBody" class="modal-body"></div>
+
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav data-aos="fade-down" data-aos-once="true">
+      <div class="brand">
+        <a href="https://kitsu.io/" target="_blank"
+          ><img src="https://i.postimg.cc/pX10t0LQ/blUskQR.png" alt="logo" title="kitsu.io"
+        /></a>
+        <span>KITSU</span>
+      </div>
+
+      <div class="search">
+        <div class="bar">
+          <input type="text" placeholder="Search anime or manga..." id="searchInput" />
+          <a href="#" onclick="return false;" title="Search" id="searchButton"
+            ><i class="fas fa-search"></i
+          ></a>
+        </div>
+
+        <div class="buttons">
+          <a href="#" onclick="return false;" title="Favorites" id="favoritesButton"
+            ><i class="fas fa-heart"></i
+          ></a>
+
+          <a href="#" onclick="return false;" title="Toggle theme" id="themeButton"
+            ><i class="fas fa-moon"></i
+          ></a>
+        </div>
+      </div>
+    </nav>
+
+    <section id="animeSection" data-aos="fade-in" data-aos-once="true">
+      <div class="title">
+        <div class="info">
+          <h2 id="animeSectionTitle">TRENDING ANIMES</h2>
+          <span id="animeInfo">Animes on trending!</span>
+        </div>
+
+        <div id="animePagination" class="pagination">
+          <a id="animeFirst" title="First page" href="#" onclick="return false;"
+            ><span><i class="fas fa-fast-backward"></i></span
+          ></a>
+
+          <a id="animePrev" title="Previous page" href="#" onclick="return false;"
+            ><span><i class="fas fa-chevron-left"></i></span
+          ></a>
+
+          <a id="animeNext" title="Next page" href="#" onclick="return false;"
+            ><span><i class="fas fa-chevron-right"></i></span
+          ></a>
+
+          <a id="animeLast" title="Last page" href="#" onclick="return false;"
+            ><span><i class="fas fa-fast-forward"></i></span
+          ></a>
+        </div>
+      </div>
+
+      <div class="row"></div>
+    </section>
+
+    <section id="mangaSection" data-aos="fade-in" data-aos-once="true">
+      <div class="title">
+        <div class="info">
+          <h2 id="mangaSectionTitle">TRENDING MANGAS</h2>
+          <span id="mangaInfo">Mangas on trending!</span>
+        </div>
+
+        <div id="mangaPagination" class="pagination">
+          <a id="mangaFirst" title="First page" href="#" onclick="return false;"
+            ><span><i class="fas fa-fast-backward"></i></span
+          ></a>
+
+          <a id="mangaPrev" title="Previous page" href="#" onclick="return false;"
+            ><span><i class="fas fa-chevron-left"></i></span
+          ></a>
+
+          <a id="mangaNext" title="Next page" href="#" onclick="return false;"
+            ><span><i class="fas fa-chevron-right"></i></span
+          ></a>
+
+          <a id="mangaLast" title="Last page" href="#" onclick="return false;"
+            ><span><i class="fas fa-fast-forward"></i></span
+          ></a>
+        </div>
+      </div>
+
+      <div class="row"></div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://kit.fontawesome.com/d6d2e5bf69.js" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script src="./js/anime.js"></script>
+    <script src="./js/manga.js"></script>
+    <script src="./js/theme.js"></script>
+    <script src="./js/index.js"></script>
+  </body>
+</html>
